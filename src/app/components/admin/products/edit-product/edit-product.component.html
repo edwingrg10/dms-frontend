@@ -1,0 +1,39 @@
+<div fxLayout>
+  <div fxFlex=80>
+      <h2 mat-dialog-title>
+          Editar
+      </h2>
+  </div>
+  <div fxFlex fxLayoutAlign="end">
+      <button mat-icon-button (click)="close()">
+          <mat-icon>clear</mat-icon>
+      </button>
+  </div>
+</div>
+
+<div class="bg-white select-container">
+  <div fxLayout="row" fxLayoutGap="10px grid">
+      <form [formGroup]="form" autocomplete="off" style="width: 100%;">
+          <div fxLayout="column" fxLayoutAlign="space-around none">
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Nombre:</mat-label>
+                  <input class="input" matInput formControlName="title" name="title">
+              </mat-form-field>
+          </div>
+      </form>
+  </div>
+
+  <!-- LISTA DRAG AND DROP -->
+
+  <div fxLayout>
+      <div fxFlex=100 fxLayoutAlign="end" fxLayoutGap="10px">
+          <button mat-raised-button (click)="close()">
+              Cancelar
+          </button>
+          <button mat-raised-button color="primary" (click)="save()">
+              Guardar
+          </button>
+      </div>
+  </div>
+</div>

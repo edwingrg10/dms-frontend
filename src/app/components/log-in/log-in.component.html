@@ -1,0 +1,32 @@
+<mat-toolbar color="primary" class="app-header">
+  <div><img src="assets/dms.png" style="width: 80px;"></div>
+  <span class="nav-tool-items">
+    <a mat-button routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
+    <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Registrarse</a>
+  </span>
+</mat-toolbar>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="form" autocomplete="off">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" formControlName="username" name="username">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" placeholder="Password" formControlName="password" name="password">
+        </mat-form-field>
+      </mat-card-content>
+      <p *ngIf="isError">Datos incorrectos, intentalo de nuevo!</p>
+      <button mat-stroked-button color="accent" class="btn-block" (click)="auth()">Log in</button>
+
+    </form>
+  </mat-card>
+
+</div>

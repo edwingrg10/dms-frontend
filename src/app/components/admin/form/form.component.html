@@ -1,0 +1,21 @@
+<app-toolbar></app-toolbar>
+<div class="content">
+  <p style="text-align: center;">Formulario</p>
+  <div fxLayout="column" fxLayoutAlign="space-around center">
+    <form class="example-form" [formGroup]="form" autocomplete="off">
+      <mat-form-field class="example-full-width">
+        <mat-label>Prueba</mat-label>
+        <input matInput type="text" formControlName="text" name="text" minlength="15">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput formControlName="textArea" name="textArea" [attr.disabled]="true"></textarea>
+      </mat-form-field><br>
+
+      <button mat-raised-button color="primary" (click)="test()">Presionar</button>
+
+    </form>
+  </div>
+</div>
