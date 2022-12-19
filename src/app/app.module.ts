@@ -32,6 +32,7 @@ import { UsersService } from './components/services/users.service';
 import { ProductsService } from './components/services/products.service';
 
 import { LocalDataService } from './components/services/local-data.service';
+import { NotificationsService } from './components/services/notificaciones.service';
 import { LoginServiceService } from './components/services/login-service.service';
 import { AuthGuard } from './components/guards/auth.guards'
 
@@ -60,7 +61,7 @@ import { AuthGuard } from './components/guards/auth.guards'
     FormsModule,
     FlexLayoutModule
   ],
-  providers: [UsersService, ProductsService, LocalDataService, LoginServiceService, AuthGuard],
+  providers: [UsersService, ProductsService, LocalDataService, NotificationsService, LoginServiceService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

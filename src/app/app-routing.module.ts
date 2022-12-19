@@ -19,8 +19,7 @@ const routes: Routes = [
   { path: 'sales', canActivate: [AuthGuard], component: SalesComponent },
   { path: 'products', canActivate: [AuthGuard], component: ProductsComponent },
   { path: 'clients', canActivate: [AuthGuard], component: ClientsComponent },
-  { path: 'form', canActivate: [AuthGuard], component: FormComponent },
-
+  { path: 'form', canActivate: [AuthGuard], component: FormComponent }
 ];
 
 @NgModule({

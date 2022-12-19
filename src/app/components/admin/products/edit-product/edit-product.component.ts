@@ -33,7 +33,8 @@ export class EditProductComponent implements OnInit {
       title: this.form.get('title').value
     })
     this.productsService.update(this.data.product.id, body).then(x => {
-      this.dialogRef.close();
+      console.log("x", x)
+      this.dialogRef.close(x);
     }).catch()
   }
 

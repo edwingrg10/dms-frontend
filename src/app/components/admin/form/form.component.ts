@@ -11,6 +11,7 @@ export class FormComponent implements OnInit {
   lengthNumbers: number = 0;
   regex = /(\d+)/g;
   isValidText: boolean = false;
+  
   constructor(
     private fb: FormBuilder,
   ) { }
@@ -28,11 +29,12 @@ export class FormComponent implements OnInit {
   }
 
   textChange() {
-    this.isValidText = this.form.get('text').value.match(this.regex).sort((a,b)=>b-a).toString().replace(/,/g, "").length >= 5 ? true : false;
+    if (this.form.get('text').value)
+      this.isValidText = this.form.get('text').value.match(this.regex).sort((a, b) => b - a).toString().replace(/,/g, "").length >= 5 ? true : false;
   }
 
   test() {
-    this.form.controls['textArea'].setValue(this.form.get('text').value.replace(/\d+/g, '')+this.form.get('text').value.match(this.regex).sort((a,b)=>b-a).toString().replace(/,/g, ""));
+    this.form.controls['textArea'].setValue(this.form.get('text').value.replace(/\d+/g, '') + this.form.get('text').value.match(this.regex).sort((a, b) => b - a).toString().replace(/,/g, ""));
   }
 
 
