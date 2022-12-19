@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LocalDataService } from '../services/local-data.service';
+import { NotificationsService } from '../services/notificaciones.service';
 import { UsersService } from '../services/users.service'
 
 @Component({
@@ -18,6 +19,7 @@ export class LogInComponent implements OnInit {
     private router: Router,
     private usersService: UsersService,
     private localDataService: LocalDataService,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class LogInComponent implements OnInit {
         this.authSuccessfully();
       } else if (x.message) {
         this.isError = true;
+        this.notificationsService.showError("Usuario incorrecto.")
       }
     }).catch(error => {
     })
