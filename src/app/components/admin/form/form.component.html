@@ -14,7 +14,7 @@
         <textarea matInput formControlName="textArea" name="textArea" [attr.disabled]="true"></textarea>
       </mat-form-field><br>
 
-      <button mat-raised-button color="primary" (click)="test()">Presionar</button>
+      <button mat-raised-button color="primary" (click)="test()" [disabled]="form.get('text').value.length<14">Presionar</button>
 
     </form>
   </div>
