@@ -9,7 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormComponent implements OnInit {
   form: FormGroup;
   lengthNumbers: number = 0;
-
+  regex = /(\d+)/g;
+  isValidText: boolean = false;
   constructor(
     private fb: FormBuilder,
   ) { }
@@ -20,16 +21,18 @@ export class FormComponent implements OnInit {
 
   createForm() {
     this.form = this.fb.group({
-      text: ['', Validators.required, Validators.minLength(15)],
+      text: ['', Validators.required],
       textArea: ['']
     });
     this.form.controls.textArea.disable();
   }
 
+  textChange() {
+    this.isValidText = this.form.get('text').value.match(this.regex).sort((a,b)=>b-a).toString().replace(/,/g, "").length >= 5 ? true : false;
+  }
+
   test() {
-    let text = this.form.get('text').value.split("").reverse().join("");
-    var regex = /(\d+)/g;
-    this.form.controls['textArea'].setValue(text.replace(/\d+/g, '')+text.match(regex).sort((a,b)=>b-a).toString().replace(/,/g, ""));
+    this.form.controls['textArea'].setValue(this.form.get('text').value.replace(/\d+/g, '')+this.form.get('text').value.match(this.regex).sort((a,b)=>b-a).toString().replace(/,/g, ""));
   }
 
 
