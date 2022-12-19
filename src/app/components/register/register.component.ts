@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotificationsService } from '../services/notificaciones.service';
 import { UsersService } from '../services/users.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private usersService: UsersService,
     private router: Router,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class RegisterComponent implements OnInit {
     })
     this.usersService.addUser(body).then(x => {
       if(x['id']) {
+        this.notificationsService.showSuccess("Usuario creado exitosamente");
         this.router.navigate(['login']);
       }
     }).catch(error => {
