@@ -6,6 +6,8 @@
     <a mat-button routerLink="/shopper" routerLinkActive="active">Compras</a>
     <a mat-button routerLink="/sales" routerLinkActive="active">Ventas</a>
     <a mat-button routerLink="/form" routerLinkActive="active">Formulario Prueba</a>
-
+    <a mat-button (click)="finishSession()">
+      <mat-icon matTooltip="Finalizar sesión">power_settings_new</mat-icon>
+    </a>
   </span>
 </mat-toolbar>

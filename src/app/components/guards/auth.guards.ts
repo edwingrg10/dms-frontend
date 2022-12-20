@@ -5,7 +5,10 @@ import { LoginServiceService } from '../services/login-service.service';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router,private sessionService:LoginServiceService) { }
+    constructor(
+        private router: Router,
+        private sessionService: LoginServiceService
+    ) { }
 
     canActivate() {
         if (this.sessionService.isAuth()) {

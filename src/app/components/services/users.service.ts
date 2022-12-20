@@ -8,8 +8,6 @@ export class UsersService {
   constructor(
   ) { }
 
-
-
   auth(body) {
     return fetch('https://dummyjson.com/auth/login', {
       method: 'POST',
